@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yt2178.github.io/sitemap.xml
+Sitemap: https://yt2178.github.io/Beit-Halevi/sitemap.xml
