@@ -1,35 +1,66 @@
 {
-  "name": "ישיבת בית הלוי - ראש העין",
-  "short_name": "בית הלוי",
-  "description": "האתר הרשמי של ישיבת בית הלוי בראש העין",
-  "start_url": "https://yt2178.github.io/Beit-Halevi/",
-  "display": "standalone",
-  "background_color": "#0f172a",
-  "theme_color": "#c3a676",
-  "icons": [
-    {
-      "src": "icon-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "icon-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "assets/icons/icon-maskable-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "assets/icons/icon-maskable-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    }
-  ]
+    "name": "ישיבת בית הלוי - ראש העין",
+    "short_name": "בית הלוי",
+    "description": "האתר הרשמי של ישיבת בית הלוי בראש העין - חדשות, עדכונים וגלריות.",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#0f172a",
+    "theme_color": "#c3a676",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "assets/icons/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "assets/icons/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "assets/icons/icon-maskable-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "assets/icons/icon-maskable-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "זמני היום והתפילות",
+            "short_name": "זמני היום",
+            "description": "זמני היום והתפילות בראש העין",
+            "url": "./#zmanim",
+            "icons": [{ "src": "assets/icons/icon-192x192.png", "sizes": "192x192" }]
+        },
+        {
+            "name": "חדשות ועדכונים",
+            "short_name": "חדשות",
+            "description": "הודעות וידיעות מישיבת בית הלוי",
+            "url": "./#news",
+            "icons": [{ "src": "assets/icons/icon-192x192.png", "sizes": "192x192" }]
+        },
+        {
+            "name": "גלריית תמונות",
+            "short_name": "גלריה",
+            "description": "תיעוד מאירועי ושמחות הישיבה",
+            "url": "./#gallery",
+            "icons": [{ "src": "assets/icons/icon-192x192.png", "sizes": "192x192" }]
+        },
+        {
+            "name": "יצירת קשר ותרומות",
+            "short_name": "צור קשר",
+            "description": "יצירת קשר עם משרדי הישיבה",
+            "url": "./#contact",
+            "icons": [{ "src": "assets/icons/icon-192x192.png", "sizes": "192x192" }]
+        }
+    ]
 }

@@ -1,4 +1,7 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /admin.html
+Disallow: /data/
 
 Sitemap: https://yt2178.github.io/sitemap.xml

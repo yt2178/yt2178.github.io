@@ -1,0 +1,928 @@
+/* ============================================================
+   RESPONSIVE SYSTEM - COMPLETE MOBILE-FIRST OVERHAUL
+   Breakpoints: 320px | 375px | 480px | 600px | 768px | 1024px
+   ============================================================ */
+
+html {
+    max-width: 100vw;
+    overflow-x: clip;
+}
+
+body {
+    overflow-x: clip;
+    min-height: 100%;
+}
+
+/* --- כותרת האתר --- */
+header h1 {
+    font-size: clamp(1.2rem, 5vw, 2.8em);
+    line-height: 1.2;
+    padding: 0 10px;
+    word-break: break-word;
+    transition: font-size 0.3s ease;
+}
+
+section h2 {
+    font-size: clamp(1.4rem, 5vw, 2.5rem);
+}
+
+/* --- ׳’׳¨׳™׳“ ׳׳׳‘׳•׳׳™׳ ׳׳•׳˜׳•׳׳˜׳™ --- */
+.album-grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
+}
+
+/* --- ׳×׳׳•׳ ׳•׳× ׳׳ ׳—׳•׳¨׳’׳•׳× ׳׳”׳׳¡׳ --- */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- ׳’׳¨׳™׳“ ׳–׳׳ ׳™ ׳”׳™׳•׳ - ׳׳•׳˜׳•׳׳˜׳™ --- */
+.zmanim-grid {
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+}
+
+/* ============================================================
+   768px - טאבלטים וטלפונים גדולים
+   ============================================================ */
+@media screen and (max-width: 768px) {
+
+    /* ניווט */
+    nav {
+        position: relative !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 6px 14px !important;
+        overflow: visible !important;
+        opacity: 1;
+        transform: translateY(0);
+        transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    /* הנפשה חלקה של העלמות שורת הכפתורים בגלילה */
+    .sticky-wrapper.scrolled nav:not(.menu-open) {
+        max-height: 0 !important;
+        height: 0 !important;
+        min-height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        opacity: 0 !important;
+        border: none !important;
+        visibility: hidden;
+        overflow: hidden !important;
+        transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease, visibility 0.3s ease, height 0.3s ease;
+    }
+
+    /* תיקון באג דפדפנים: דחיסת כל הילדים כדי למנוע רווח רפאים רק כשהתפריט סגור */
+    .sticky-wrapper.scrolled nav:not(.menu-open) * {
+        max-height: 0 !important;
+        height: 0 !important;
+        min-height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+        overflow: hidden !important;
+    }
+
+    /* כאשר התפריט פתוח - שמור על תצוגה פתוחה ומלאה */
+    nav.menu-open,
+    .sticky-wrapper.scrolled nav.menu-open {
+        max-height: none !important;
+        height: auto !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        overflow: visible !important;
+    }
+
+    .menu-toggle {
+        display: flex !important;
+        width: 44px;
+        height: 44px;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        color: white;
+        font-size: 1.25rem;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .nav-links {
+        display: none !important;
+        position: absolute !important;
+        top: 100% !important;
+        right: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        background-color: #1a2a3a !important;
+        flex-direction: column !important;
+        padding: 6px 0 !important;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5) !important;
+        border-bottom: 2px solid #c3a676 !important;
+        z-index: 99999 !important;
+        animation: slideDown 0.25s ease-out;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .nav-links.active {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    .nav-links a {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        width: 100% !important;
+        padding: 14px 20px !important;
+        font-size: 1.05rem !important;
+        color: #ffffff !important;
+        text-align: center !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        display: block !important;
+    }
+
+    nav a:hover {
+        transform: none;
+        background-color: rgba(255, 255, 255, 0.12);
+    }
+
+    /* ׳›׳•׳×׳¨׳× */
+    header {
+        padding: 15px 0;
+    }
+
+    /* ׳׳™׳›׳ ׳¨׳׳©׳™ */
+    main {
+        margin: 15px auto;
+        padding: 12px;
+        border-radius: 6px;
+    }
+
+    /* ׳₪׳¡׳§׳׳•׳× */
+    section {
+        padding: 2.5rem 1rem;
+    }
+
+    /* ׳’׳¨׳™׳“ ׳–׳׳ ׳™ ׳”׳™׳•׳ */
+    .zmanim-layout {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .current-date-box,
+    .location-box {
+        width: 100%;
+        min-width: auto;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .zmanim-grid {
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
+    }
+
+    /* ׳¦׳•׳¨ ׳§׳©׳¨ */
+    .contact-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .form-column,
+    .contact-info {
+        height: auto;
+        min-height: 380px;
+        min-width: 0;
+        width: 100%;
+    }
+
+    #contact {
+        padding: 1.5rem 1rem;
+    }
+
+    #contact textarea {
+        min-height: 110px;
+    }
+
+    .map-container {
+        min-height: 250px;
+        width: 100%;
+        display: flex;
+        flex: 1;
+    }
+
+    .map-container iframe {
+        flex: 1;
+    }
+
+    /* ׳׳™׳™׳˜׳‘׳•׳§׳¡ */
+    .lightbox-close {
+        top: 10px;
+        right: 12px;
+        font-size: 2.2em;
+        width: 48px;
+        height: 48px;
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+        padding: 14px 10px;
+        font-size: 1.2em;
+    }
+
+    .lightbox-controls {
+        bottom: 10px;
+        padding: 8px 15px;
+        gap: 10px;
+    }
+
+    .lightbox-controls button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1em;
+        padding: 0;
+    }
+
+    /* ׳׳•׳“׳׳ ׳—׳“׳©׳•׳× */
+    .news-modal .modal-content {
+        width: 94%;
+        padding: 20px 15px;
+        margin: 5% auto;
+    }
+
+    .news-modal #modal-title {
+        font-size: 1.4rem;
+    }
+
+    .news-modal .modal-controls {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #news-prev-btn,
+    #news-next-btn,
+    #news-share-btn {
+        width: auto;
+        min-width: 100px;
+        font-size: 0.95rem;
+        padding: 10px 12px;
+    }
+
+    /* ׳’׳¨׳™׳“ ׳×׳׳•׳ ׳•׳× (overlay) */
+    .thumbnail-grid {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        gap: 10px;
+    }
+
+    .thumbnail-grid img {
+        height: 100px;
+    }
+
+    .grid-header h2 {
+        font-size: 1.5em;
+    }
+
+    .album-controls {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .album-controls button {
+        font-size: 0.9em;
+        padding: 8px 12px;
+    }
+
+    /* ׳›׳₪׳×׳•׳¨׳™ ׳”׳•׳¨׳“׳”/׳—׳–׳¨׳” */
+    #back-to-top-btn {
+        bottom: 80px;
+        /* ׳׳׳¢׳׳” ׳׳”-FAB */
+        right: 15px;
+        width: 46px;
+        height: 46px;
+    }
+
+    .fab-subscribe {
+        bottom: 20px;
+        left: 15px;
+        width: 54px;
+        height: 54px;
+        font-size: 1.3rem;
+    }
+}
+
+/* ============================================================
+   480px - ׳˜׳׳₪׳•׳ ׳™׳ ׳¨׳’׳™׳׳™׳ (Galaxy S, iPhone 12/13/14)
+   ============================================================ */
+@media screen and (max-width: 480px) {
+
+    header h1 {
+        font-size: clamp(1.1rem, 6vw, 1.7em);
+    }
+
+    .top-bar {
+        font-size: 0.82em;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px;
+        padding: 4px 8px;
+    }
+
+    .bsd {
+        font-size: 0.85em;
+        top: 3px;
+        right: 6px;
+    }
+
+    section {
+        padding: 2rem 1.2rem;
+        /* ׳”׳•׳¡׳₪׳× ׳׳¨׳•׳•׳— ׳¦׳“׳“׳™ ׳§׳‘׳•׳¢ ׳‘׳׳•׳‘׳™׳™׳ */
+        box-sizing: border-box;
+    }
+
+    section h2 {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+
+    section h2::after {
+        width: 60px;
+        height: 4px;
+        margin: 1rem auto 0;
+    }
+
+    .news-item {
+        padding: 1rem 0.9rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .news-item h3 {
+        font-size: 1.15rem;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #contact input,
+    #contact textarea {
+        font-size: 16px;
+        /* ׳׳ ׳™׳¢׳× ׳–׳•׳ ׳׳•׳˜׳•׳׳˜׳™ ׳‘-iOS */
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0 auto;
+    }
+
+    .form-column,
+    .contact-info {
+        text-align: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .notification-card {
+        padding: 2rem 1.2rem;
+        border-radius: 14px;
+    }
+
+    .notification-card h2 {
+        font-size: 1.5rem;
+    }
+
+    .notification-button {
+        padding: 1rem 1.8rem;
+        font-size: 1rem;
+        width: auto;
+        max-width: 90%;
+        margin: 0 auto;
+        justify-content: center;
+    }
+
+    .donation-button,
+    #contact button {
+        padding: 0.9rem 1.5rem;
+        font-size: 0.95rem;
+        width: auto;
+        max-width: 90%;
+        margin: 0 auto;
+        display: block;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .subscribe-modal-content {
+        padding: 20px 15px;
+        border-radius: 14px;
+    }
+
+    /* grid ׳×׳׳•׳ ׳•׳× ׳§׳˜׳ ׳™׳•׳×׳¨ */
+    .album-grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 12px;
+    }
+
+    /* ׳©׳™׳₪׳•׳¨ ׳׳¨׳›׳•׳– ׳•׳¡׳™׳“׳•׳¨ ׳©׳ ׳§׳˜׳¢׳™ ׳×׳•׳›׳ */
+    .donation-section,
+    #contact {
+        text-align: center;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .donation-section p,
+    #contact p {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 90%;
+    }
+
+
+    /* ׳’׳¨׳™׳“ ׳–׳׳ ׳™ ׳”׳™׳•׳ - ׳›׳₪׳•׳ */
+    .zmanim-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    }
+
+    .zman-label {
+        font-size: 0.78em;
+    }
+
+    .zman-time {
+        font-size: 0.95em;
+    }
+
+    /* ׳›׳₪׳×׳•׳¨ ׳׳¦׳‘ ׳›׳”׳” ׳‘׳ ׳™׳•׳•׳˜ */
+    .theme-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    /* ׳׳•׳“׳׳ ׳¢׳¨׳™׳ */
+    .city-list {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        gap: 8px;
+    }
+
+    /* ׳›׳₪׳×׳•׳¨׳™ ׳׳’׳¢ ׳’׳“׳•׳׳™׳ ׳™׳•׳×׳¨ */
+    button,
+    a[href] {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Landscape orientation - ׳׳¡׳ ׳§׳¦׳¨ */
+    @media (max-height: 480px) {
+        .top-bar {
+            display: none;
+        }
+
+        header {
+            padding: 8px 0;
+        }
+
+        .zmanim-container {
+            display: none;
+        }
+
+        section {
+            padding: 1.2rem 0.85rem;
+        }
+    }
+}
+
+/* ============================================================
+   375px - iPhone ׳¨׳’׳™׳ (6/7/8/X/11)
+   ============================================================ */
+@media screen and (max-width: 375px) {
+
+    header h1 {
+        font-size: 1.15rem;
+        padding: 0 8px;
+    }
+
+    nav {
+        padding: 6px 10px;
+    }
+
+    section {
+        padding: 1.8rem 0.75rem;
+    }
+
+    section h2 {
+        font-size: 1.45rem;
+    }
+
+    .news-item {
+        border-right-width: 4px;
+        padding: 0.9rem;
+    }
+
+    .news-item h3 {
+        font-size: 1.05rem;
+    }
+
+    .album-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .album-cover img {
+        height: 160px;
+    }
+
+    .thumbnail-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+    }
+
+    .thumbnail-grid img {
+        height: 80px;
+    }
+
+    .album-controls {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .album-controls button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    footer {
+        font-size: 0.8rem;
+        padding: 20px 15px;
+    }
+
+    .news-modal .modal-content {
+        width: 96%;
+        padding: 15px 12px;
+    }
+
+    #news-prev-btn,
+    #news-next-btn,
+    #news-share-btn {
+        font-size: 0.85rem;
+        min-width: 85px;
+        padding: 8px 10px;
+    }
+
+    .lightbox-controls {
+        gap: 8px;
+        padding: 6px 12px;
+        border-radius: 20px;
+    }
+
+    .lightbox-controls button {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
+/* ============================================================
+   320px - iPhone SE ׳•׳“׳’׳׳™׳ ׳§׳˜׳ ׳™׳ ׳׳׳•׳“
+   ============================================================ */
+@media screen and (max-width: 320px) {
+
+    header h1 {
+        font-size: 1rem;
+        letter-spacing: 0;
+    }
+
+    section h2 {
+        font-size: 1.25rem;
+    }
+
+    .news-item h3 {
+        font-size: 0.95rem;
+    }
+
+    .album-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .album-cover img {
+        height: 130px;
+    }
+
+    .album-cover .album-title {
+        font-size: 0.9rem;
+        padding: 12px 6px 6px;
+    }
+
+    .thumbnail-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4px;
+    }
+
+    .thumbnail-grid img {
+        height: 68px;
+    }
+
+    .grid-header h2 {
+        font-size: 1.1em;
+    }
+
+    .grid-close {
+        font-size: 2em;
+        top: 10px;
+        right: 12px;
+    }
+
+    #contact input,
+    #contact textarea {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    #contact button {
+        padding: 0.9rem 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    .notification-card h2 {
+        font-size: 1.2rem;
+    }
+
+    .notification-button {
+        font-size: 0.9rem;
+        padding: 0.85rem 1.2rem;
+    }
+
+    .donation-button {
+        font-size: 0.9rem;
+        padding: 0.8rem 1.2rem;
+    }
+
+    .fab-subscribe {
+        width: 48px;
+        height: 48px;
+        font-size: 1.1rem;
+        left: 10px;
+        bottom: 15px;
+    }
+
+    #back-to-top-btn {
+        width: 40px;
+        height: 40px;
+        bottom: 70px;
+        right: 10px;
+    }
+
+    .zmanim-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .zman-item {
+        padding: 3px 5px;
+    }
+
+    .zman-label {
+        font-size: 0.7em;
+    }
+
+    .zman-time {
+        font-size: 0.85em;
+    }
+
+    .subscribe-modal-content {
+        width: 96%;
+        padding: 16px 12px;
+    }
+
+    footer {
+        font-size: 0.78rem;
+        padding: 16px 10px;
+    }
+}
+
+/* ============================================================
+   ׳©׳˜׳— ׳׳’׳¢ ׳׳™׳ ׳™׳׳׳™ ׳׳›׳₪׳×׳•׳¨׳™׳ ג€” ׳—׳ ׳¢׳ ׳›׳ ׳”׳’׳“׳׳™׳
+   ============================================================ */
+button,
+.premium-btn,
+.donation-button,
+.load-more-button,
+nav a,
+.city-option,
+.lightbox-prev,
+.lightbox-next {
+    min-height: 44px;
+}
+
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none !important;
+    }
+}
+
+/* ============================================================
+/* ?????? ?????? ???????????? - ????? ???????? */
+@media (max-width: 768px) {
+
+    .lightbox-prev,
+    .lightbox-next {
+        display: none !important;
+    }
+}
+
+@media (max-width: 350px) {
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    .top-bar {
+        font-size: 0.75rem;
+    }
+
+    .donation-button {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ????? ?????? - ????? ??? ????? ???? ???? ???????? ?????? ?? ?????? */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 10px;
+    background: #1a4b84;
+    color: white;
+    padding: 8px 15px;
+    z-index: 10000;
+    text-decoration: none;
+    border-radius: 0 0 5px 5px;
+    transition: top 0.2s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* === ׳×׳™׳§׳•׳ ׳¨׳¡׳₪׳•׳ ׳¡׳™׳‘׳™׳•׳× ׳׳•׳‘׳™׳™׳ ׳׳§׳™׳£ - ׳׳₪׳¨׳™׳ 2026 === */
+
+/* 1. ׳׳ ׳™׳¢׳× ׳’׳׳™׳׳” ׳׳•׳₪׳§׳™׳× (Overflow) */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    /* overflow-x: hidden; הסרנו כפילות שגורמת לתקיעות במובייל */
+    max-width: 100vw;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+img,
+video,
+iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 2. ׳›׳™׳•׳•׳¥ ׳›׳•׳×׳¨׳•׳× ׳•׳ ׳™׳•׳•׳˜ ׳‘׳׳•׳‘׳™׳™׳ */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 8px 0 !important;
+    }
+
+    header h1 {
+        font-size: 1.5rem !important;
+        margin: 5px 0 !important;
+        line-height: 1.2;
+    }
+
+    nav {
+        padding: 5px 10px !important;
+        min-height: 45px;
+        overflow: visible !important;
+    }
+
+    .nav-links {
+        max-height: 70vh;
+        overflow-y: auto;
+        top: 100%;
+        background-color: #1a2a3a !important;
+        backdrop-filter: blur(15px);
+        z-index: 99999 !important;
+    }
+
+    /* ׳×׳™׳§׳•׳ ׳¡׳¨׳’׳ ׳¢׳׳™׳•׳ - ׳×׳׳¨׳™׳ ׳•׳–׳׳ ׳™׳ */
+    .top-bar {
+        font-size: 0.8rem;
+        padding: 3px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .zmanim-container {
+        display: none !important;
+    }
+
+    .zmanim-item {
+        margin: 2px 5px !important;
+    }
+}
+
+/* 3. ׳¡׳™׳“׳•׳¨ ׳׳׳׳ ׳˜׳™׳ ׳—׳•׳¨׳’׳™׳ (׳›׳₪׳×׳•׳¨ ׳”׳×׳¨׳׳•׳×, ׳§׳•׳ ׳˜׳™׳™׳ ׳¨׳™׳) */
+@media screen and (max-width: 768px) {
+    .notification-button {
+        width: 90% !important;
+        margin: 10px auto !important;
+        display: flex !important;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: auto !important;
+        transform: none !important;
+        border-radius: 8px !important;
+        justify-content: center;
+    }
+
+    .contact-container,
+    .news-container,
+    .about-container {
+        width: 100% !important;
+        max-width: 100vw !important;
+        margin: 0 !important;
+        padding: 10px !important;
+        box-sizing: border-box;
+    }
+
+    /* ׳×׳׳•׳ ׳•׳× ׳¦׳•׳•׳× ׳‘׳׳•׳“׳•׳× (׳׳ ׳™׳©) */
+    .about-image {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}
+
+/* 4. ׳׳ ׳™׳¢׳× ׳’׳׳™׳׳× Main ׳•-Section */
+main {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: clip;
+}
+
+section {
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding: 1.5rem 1rem !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+}
+
+/* --- Empty States --- */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--surface-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    margin: 20px 0;
+    transition: all var(--transition-speed);
+}
+
+.empty-state i {
+    font-size: 3.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    opacity: 0.6;
+}
+
+.empty-state p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin: 0;
+    font-weight: 600;
+}
+
+body.dark-mode .empty-state {
+    background: var(--dark-surface);
+}

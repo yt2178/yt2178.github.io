@@ -1,0 +1,224 @@
+.notifications-section {
+    padding: 4rem 1.5rem;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.notification-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 3.5rem 2.5rem;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+    animation: slideInUp 0.8s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.notification-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.notification-card::after {
+    content: "";
+    position: absolute;
+    bottom: -30%;
+    left: -20%;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    animation: float 8s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.notification-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
+}
+
+.notification-icon {
+    position: relative;
+    z-index: 1;
+    font-size: 3.5rem;
+    color: white;
+    margin-bottom: 1rem;
+    animation: bellRing 2s ease-in-out infinite;
+}
+
+@keyframes bellRing {
+
+    0%,
+    100% {
+        transform: rotateZ(0deg);
+    }
+
+    10%,
+    20% {
+        transform: rotateZ(-25deg);
+    }
+
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: rotateZ(25deg);
+    }
+
+    40%,
+    60%,
+    80% {
+        transform: rotateZ(-25deg);
+    }
+}
+
+.notification-card h2 {
+    position: relative;
+    z-index: 1;
+    color: white;
+    font-size: 2.2rem;
+    margin: 1rem 0 0.5rem 0;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.notification-subtitle {
+    position: relative;
+    z-index: 1;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.1rem;
+    margin: 0 0 1.5rem 0;
+    font-weight: 600;
+}
+
+.notification-text {
+    position: relative;
+    z-index: 1;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin: 0 0 2rem 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.notification-button {
+    position: relative;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #667eea;
+    border: none;
+    padding: 1.2rem 2.8rem;
+    border-radius: 12px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.notification-button:hover {
+    background-color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.notification-button:active {
+    transform: translateY(-1px);
+}
+
+.notification-button i {
+    font-size: 1.3rem;
+    animation: bellPulse 2s ease-in-out infinite;
+}
+
+@keyframes bellPulse {
+
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    25% {
+        transform: scale(1.15) rotate(-15deg);
+    }
+
+    75% {
+        transform: scale(1.15) rotate(15deg);
+    }
+}
+
+/* ׳׳¦׳‘ ׳›׳”׳” */
+body.dark-mode .notification-card {
+    background: #232a35;
+    /* ׳×׳•׳׳ ׳׳¨׳§׳¢ ׳©׳ ׳”׳˜׳•׳₪׳¡ ׳•׳”׳׳₪׳” */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .notification-card:hover {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* [׳×׳™׳§׳•׳] ׳¨׳§׳¢ ׳§׳™׳©׳•׳¨׳™ ׳ ׳™׳•׳•׳˜ ׳‘׳׳¦׳‘ ׳›׳”׳” - ׳©׳™׳”׳™׳” ׳©׳§׳•׳£/׳×׳•׳׳ */
+body.dark-mode nav a {
+    background-color: transparent;
+    color: var(--dark-text);
+}
+
+body.dark-mode nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--secondary-color);
+}
+
+/* Dark mode text colors for all headings and content */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode p,
+body.dark-mode a,
+body.dark-mode label,
+body.dark-mode button,
+body.dark-mode span,
+body.dark-mode .text-content {
+    color: var(--dark-text);
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: #999;
+}
+
+body.dark-mode a:hover {
+    color: var(--dark-secondary);
+}
+

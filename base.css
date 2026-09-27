@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap');
+
+
+html {
+    scroll-padding-top: 60px;
+    scroll-behavior: smooth;
+    /* Removed overflow-y: auto to prevent double scrollbars in RTL */
+}
+
+body {
+    overflow-x: clip;
+    width: 100%;
+    position: relative;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+body.dark-mode ::-webkit-scrollbar-track {
+    background: #0f1218;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+    background: #444;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+
+:root {
+    --primary-color: #1a4b84;
+    --secondary-color: #3498db;
+    --accent-color: #f39c12;
+    --background-color: #f8f9fa;
+    --text-color: #2c3e50;
+    --border-radius: 12px;
+    --transition-speed: 0.3s;
+    --header-bg: #003366;
+    --nav-bg: rgba(51, 51, 51, 0.85);
+    /* For glassmorphism */
+    --surface-bg: #ffffff;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
+
+    /* ׳¢׳¨׳›׳•׳× ׳ ׳•׳©׳ */
+    --gold-primary: #8e6d13;
+    --gold-secondary: #c3a676;
+    --gold-accent: #d4af37;
+
+    /* Dark mode variables */
+    --dark-background: #0f1218;
+    --dark-text: #e2e8f0;
+    --dark-primary: #1e3a5a;
+    --dark-secondary: #2c5282;
+    --dark-surface: rgba(26, 32, 44, 0.8);
+}
+
+/* ׳¢׳¨׳›׳× ׳–׳”׳‘ */
+body.theme-gold {
+    --primary-color: var(--gold-primary);
+    --secondary-color: var(--gold-secondary);
+    --accent-color: var(--gold-accent);
+    --header-bg: #4a3708;
+    --nav-bg: #2c2205;
+}
+
+/* ׳׳¦׳‘ ׳›׳”׳” ׳׳•׳‘׳ ׳” */
+body.dark-mode {
+    --background-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --primary-color: #2d6baf;
+    --secondary-color: #235d8c;
+    --header-bg: #0a1f3d;
+    --nav-bg: #0d0d0d;
+}
+
+/* --- ׳×׳™׳§׳•׳: ׳”׳’׳“׳¨׳•׳× ׳׳¦׳‘ ׳›׳”׳” ׳—׳¡׳¨׳•׳× --- */
+
+/* ׳”׳’׳“׳¨׳•׳× ׳›׳׳׳™׳•׳× ׳׳׳¦׳‘ ׳›׳”׳” */
+body.dark-mode {
+    background-color: var(--dark-background);
+    color: var(--dark-text);
+}
+
+body.dark-mode header,
+body.dark-mode nav {
+    background-color: var(--dark-primary);
+}
+
+body.dark-mode .top-bar {
+    background-color: #0d0d0d;
+    color: var(--dark-text);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .bsd {
+    color: var(--dark-text);
+}
+
+/* ׳©׳“׳¨׳•׳’: ׳׳¢׳‘׳¨ ׳׳”׳™׳¨ ׳‘׳™׳ ׳׳¦׳‘׳™ ׳×׳¦׳•׳’׳” */
+body {
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+main {
+    transition: box-shadow var(--transition-speed);
+}
+
+/* ׳׳׳׳ ׳˜׳™׳ ׳©׳¦׳¨׳™׳›׳™׳ ׳׳”׳₪׳•׳ ׳›׳”׳™׳ */
+body.dark-mode main,
+body.dark-mode #contact {
+    background-color: var(--dark-surface);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .news-item {
+    background-color: var(--dark-surface);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-right: 4px solid var(--dark-primary);
+    backdrop-filter: blur(10px);
+}
+
+body.dark-mode .news-item h3 {
+    color: var(--dark-text);
+}
+
+body.dark-mode .album-cover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode footer {
+    background-color: #0b0e14;
+}
+
+/* ׳¦׳‘׳¢׳™ ׳›׳₪׳×׳•׳¨׳™׳ ׳•׳“׳’׳©׳™׳ */
+body.dark-mode .donation-button {
+    background-color: #387638;
+    background-color: #387638;
+}
+
+/* [׳×׳™׳§׳•׳] ׳›׳₪׳×׳•׳¨ ׳”׳×׳¨׳׳•׳× ׳‘׳׳¦׳‘ ׳›׳”׳” */
+body.dark-mode .notification-button {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+/* [׳×׳™׳§׳•׳] ׳§׳•׳ ׳˜׳™׳™׳ ׳¨׳™׳ ׳©׳ ׳”׳˜׳•׳₪׳¡ ׳•׳”׳׳₪׳” ׳‘׳׳¦׳‘ ׳›׳”׳” */
+body.dark-mode .form-column,
+body.dark-mode .contact-info {
+    background-color: #232a35;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .form-column h3,
+body.dark-mode .contact-info h3 {
+    color: white;
+}
+
+/* [׳×׳™׳§׳•׳] ׳˜׳•׳₪׳¡ ׳¦׳•׳¨ ׳§׳©׳¨ ׳‘׳׳¦׳‘ ׳›׳”׳” */
+body.dark-mode #contact input,
+body.dark-mode #contact textarea {
+    background-color: #232a35;
+    color: var(--dark-text);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* [׳×׳™׳§׳•׳] ׳₪׳¨׳˜׳™ ׳”׳×׳§׳©׳¨׳•׳× ׳‘׳׳¦׳‘ ׳›׳”׳” */
+body.dark-mode .contact-info,
+body.dark-mode .contact-info p,
+body.dark-mode .contact-info strong,
+body.dark-mode .contact-info i {
+    color: var(--dark-text);
+}
+
+body.dark-mode .contact-info i {
+    color: var(--secondary-color);
+    /* ׳׳™׳™׳§׳•׳ ׳™׳ ׳‘׳¦׳‘׳¢ ׳×׳›׳׳× */
+}
+
+/* [׳×׳™׳§׳•׳] ׳›׳₪׳×׳•׳¨׳™ ׳׳׳‘׳•׳ ׳•׳’׳׳¨׳™׳” ׳‘׳׳¦׳‘ ׳›׳”׳” */
+body.dark-mode .album-controls button,
+body.dark-mode .lightbox-controls button {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .album-controls button:hover,
+body.dark-mode .lightbox-controls button:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: white;
+}
+
+body.dark-mode #contact input:focus,
+body.dark-mode #contact textarea:focus {
+    background-color: #1a202c;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* [׳×׳™׳§׳•׳] ׳¨׳§׳¢ ׳§׳™׳©׳•׳¨׳™ ׳ ׳™׳•׳•׳˜ ׳‘׳׳¦׳‘ ׳›׳”׳” - ׳©׳™׳”׳™׳” ׳©׳§׳•׳£/׳×׳•׳׳ */
+body.dark-mode .nav-links {
+    background-color: transparent;
+    /* ׳”׳¡׳¨׳× ׳”׳¨׳§׳¢ ׳”׳©׳—׳•׳¨ */
+    border: none;
+    box-shadow: none;
+}
+
+body {
+    font-family: 'Assistant', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    font-size: 16px;
+    overflow-x: clip;
+    position: relative;
+    width: 100%;
+    -webkit-overflow-scrolling: touch; /* Momentum scrolling for iOS */
+}
+
+/* Unified Scroll Lock */
+body.no-scroll {
+    overflow: hidden !important;
+    height: 100vh !important;
+    width: 100% !important;
+    position: fixed !important;
+}

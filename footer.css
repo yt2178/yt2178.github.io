@@ -1,0 +1,19 @@
+﻿footer {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #1a1a1a;
+    color: #888;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
+}
+
+body.dark-mode footer {
+    background-color: #0b0e14;
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+

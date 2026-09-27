@@ -1,0 +1,77 @@
+[
+  {
+    "text": "בעדכון ידיעה לא נוצר חדש והקודם לא נמחק וגן במחיקה ידנית הוא לא נמחק",
+    "completed": true,
+    "createdAt": "2026-08-19T19:18:44.430Z"
+  },
+  {
+    "text": "שגיאות בעדכון אלבום Access to fetch at 'https://onesignal.com/api/v1/notifications' from origin 'https://yt2178.github.io' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. admin-core.js:465  POST https://onesignal.com/api/v1/notifications net::ERR_FAILED 400 (Bad Request) sendPushNotification @ admin-core.js:465 handleGallerySubmit @ admin-gallery.js:688 admin-core.js:480 Error sending push notification: TypeError: Failed to fetch     at sendPushNotification (admin-core.js:465:39)     at HTMLFormElement.handleGallerySubmit (admin-gallery.js:688:17)",
+    "completed": true,
+    "createdAt": "2026-08-03T03:46:34.712Z"
+  },
+  {
+    "text": "זה שגיאה - admin-core.js:286  Conflict/Error (422) on attempt 1. Refetching latest... בעדכון משימה באתר הניהול",
+    "completed": true,
+    "createdAt": "2026-07-21T18:10:05.732Z"
+  },
+  {
+    "text": "זה השגאיות אחרי העלאת אלבום - Access to fetch at 'https://onesignal.com/api/v1/notifications' from origin 'https://yt2178.github.io' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. admin-core.js:465  POST https://onesignal.com/api/v1/notifications net::ERR_FAILED 400 (Bad Request) sendPushNotification @ admin-core.js:465 handleGallerySubmit @ admin-gallery.js:686 admin-core.js:480 Error sending push notification: TypeError: Failed to fetch     at sendPushNotification (admin-core.js:465:39)     at HTMLFormElement.handleGallerySubmit (admin-gallery.js:686:17)",
+    "completed": true,
+    "createdAt": "2026-07-21T18:09:43.556Z"
+  },
+  {
+    "text": "לכל אלבום יהיה ניתן להוסיף תאריך מתי הוא היה בברירת מחדל זה היום וכן הוא יציג את זה בניהול בכל אלבום וכן יתן לערוך את זה בניהול וכן יציג את התאריך העברי והלועזי בפתיחת אלבום באתר ליד השם של האלבום בקטן",
+    "completed": true,
+    "createdAt": "2026-06-30T11:28:55.443Z"
+  },
+  {
+    "text": "תוסיף להסטוריית פעולות גם עריכת משימות מנהלים",
+    "completed": true,
+    "createdAt": "2026-06-30T11:26:38.873Z"
+  },
+  {
+    "text": "כשאני מוסיף משימות בנהיול ואז יוצא הוא שמור וכותב מוסיף משימות לגיטהב ונעלם במקום לעשות וי ירוק שאומר שהמשימות נוספו",
+    "completed": true,
+    "createdAt": "2026-06-30T11:26:12.916Z"
+  },
+  {
+    "text": "יש בעיה כשאני פותח אלבום תמונות ולאחר מכן תמונה ספציפית כשאני לוחץ על האיקס הוא מוביל אותי למסך הראשי ולא לאלבום תמונות בחזרה צריך לעשות כשנאי פותח אלבום ולאחר מכן תמונה האלבום נשאר פתוח ברקע ואז האיקס שבכל תמונה בודדת יחזיר אליו",
+    "completed": true,
+    "createdAt": "2026-06-30T11:25:24.902Z"
+  },
+  {
+    "text": "גם זה admin-core.js:279   PUT https://api.github.com/repos/yt2178/Beit-Halevi/contents/data/admin-tasks.json 422 (Unprocessable Content) admin-core.js:293 Conflict/Error (422) on attempt 1. Refetching latest...",
+    "completed": true,
+    "createdAt": "2026-05-28T13:35:35.778Z"
+  },
+  {
+    "text": "יש בעיה בהעלאת אלבום חדש שהתמונת אלבום לא מוגדרת טוב וצריך לערוך את האלבום שוב ולבחור שוב תמונת אלבום ואז זה מסתדר",
+    "completed": true,
+    "createdAt": "2026-05-05T12:39:48.359Z"
+  },
+  {
+    "text": "הוספת אפשרות הרשמה האם להירשם רק כשיש פוסט או אלבום חדש או גם עדכון שלהם",
+    "completed": true,
+    "createdAt": "2026-04-28T10:18:20.670Z"
+  },
+  {
+    "text": "בדיקת ההתראות בפרסום אלבום או פוסט חדש",
+    "completed": true,
+    "createdAt": "2026-04-28T10:17:46.064Z"
+  },
+  {
+    "text": "בדיקת תקינות העלאת אלבום תמונות חדש",
+    "completed": true,
+    "createdAt": "2026-04-28T10:17:28.512Z"
+  },
+  {
+    "text": "בדיקת תקינות העלאת פוסט חדש",
+    "completed": true,
+    "createdAt": "2026-04-28T10:17:20.853Z"
+  },
+  {
+    "text": "בדיקת האתר",
+    "completed": true,
+    "createdAt": "2026-04-26T10:14:33.421Z"
+  }
+]
