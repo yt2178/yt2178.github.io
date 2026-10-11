@@ -137,7 +137,7 @@ if (contactForm) {
         statusMessage.style.marginTop = '10px';
 
         // הכתובת של ה-Google Apps Script Web App המרכזי
-        const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwVs5qCMlfPJOMikCwzzMdjygVl80byjxLSevub_sSeWQPnBakL-ioOQlgfYo2IDz1SHw/exec";
+        const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx9Q26XavI0TYhxAG_he6B9IHobwkvS4k-pAX9rEV3dLuLYwNrhjOwlfspV4xYZ3hJyGQ/exec";
 
         // בדיקת האניפוט
         if (contactForm.honeypot && contactForm.honeypot.value !== "") {

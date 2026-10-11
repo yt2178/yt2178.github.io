@@ -1,15 +1,5 @@
 [
   {
-    "text": "בעדכון ידיעה לא נוצר חדש והקודם לא נמחק וגן במחיקה ידנית הוא לא נמחק",
-    "completed": true,
-    "createdAt": "2026-08-19T19:18:44.430Z"
-  },
-  {
-    "text": "שגיאות בעדכון אלבום Access to fetch at 'https://onesignal.com/api/v1/notifications' from origin 'https://yt2178.github.io' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. admin-core.js:465  POST https://onesignal.com/api/v1/notifications net::ERR_FAILED 400 (Bad Request) sendPushNotification @ admin-core.js:465 handleGallerySubmit @ admin-gallery.js:688 admin-core.js:480 Error sending push notification: TypeError: Failed to fetch     at sendPushNotification (admin-core.js:465:39)     at HTMLFormElement.handleGallerySubmit (admin-gallery.js:688:17)",
-    "completed": true,
-    "createdAt": "2026-08-03T03:46:34.712Z"
-  },
-  {
     "text": "זה שגיאה - admin-core.js:286  Conflict/Error (422) on attempt 1. Refetching latest... בעדכון משימה באתר הניהול",
     "completed": true,
     "createdAt": "2026-07-21T18:10:05.732Z"

@@ -15,7 +15,7 @@ export const HISTORY_JSON_PATH = 'data/history.json';
 export const SITE_CONFIG_PATH = 'data/site-config.json';
 export const GALLERY_JSON_PATH = 'data/gallery.json';
 export const TASKS_JSON_PATH = 'data/admin-tasks.json';
-export const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwVs5qCMlfPJOMikCwzzMdjygVl80byjxLSevub_sSeWQPnBakL-ioOQlgfYo2IDz1SHw/exec";
+export const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx9Q26XavI0TYhxAG_he6B9IHobwkvS4k-pAX9rEV3dLuLYwNrhjOwlfspV4xYZ3hJyGQ/exec";
 export const APPS_SCRIPT_SECRET = "beit_halevi_secret_2026";
 export const MESSAGES_SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRpxzvw-KY5zHaayaA6eaDMJ4OG8DxvrPHfBpC7_yI0TBlnMyGZm378VJiv3vJOmdSqtjon7SaPWVno/pub?output=csv";
 
@@ -236,17 +236,31 @@ export async function uploadFileToDrive(file, token = null) {
                 base64: base64Data
             };
 
-            const res = await window.fetch(APPS_SCRIPT_URL, {
-                method: "POST",
-                body: JSON.stringify(payload)
-            });
+            let lastErr = null;
+            for (let attempt = 1; attempt <= 3; attempt++) {
+                try {
+                    const res = await window.fetch(APPS_SCRIPT_URL, {
+                        method: "POST",
+                        body: JSON.stringify(payload)
+                    });
 
-            if (res.ok) {
-                const data = await res.json();
-                if (data.success && data.fileId) {
-                    return data.fileId;
+                    if (res.ok) {
+                        const data = await res.json();
+                        if (data.success && data.fileId) {
+                            return data.fileId;
+                        }
+                    } else {
+                        console.warn(`Apps Script upload attempt ${attempt} returned status ${res.status}`);
+                    }
+                } catch (fetchErr) {
+                    lastErr = fetchErr;
+                    console.warn(`Apps Script upload attempt ${attempt} failed:`, fetchErr);
+                }
+                if (attempt < 3) {
+                    await new Promise(r => setTimeout(r, 1500));
                 }
             }
+            if (lastErr && !token) throw lastErr;
         } catch (scriptErr) {
             console.warn("Apps Script direct upload failed, checking token fallback:", scriptErr);
             if (!token) throw scriptErr;
@@ -495,7 +509,6 @@ export async function sendPushNotification(title, message, isUpdate = false) {
             appIdStr = configElement.value.trim();
         }
         
-        // [שיפור] אם אין מפתח מקומי, נסה לקחת מהשדה (שעשוי להכיל מפתח גלובלי)
         if (!restKey && configRestElement && configRestElement.value) {
             restKey = configRestElement.value.trim();
         }
@@ -519,6 +532,38 @@ export async function sendPushNotification(title, message, isUpdate = false) {
         return;
     }
 
+    // שליחה דרך Apps Script (שרת) כדי לעקוף מגבלות CORS של הדפדפן
+    if (APPS_SCRIPT_URL) {
+        try {
+            const scriptPayload = {
+                action: "sendPush",
+                secret: APPS_SCRIPT_SECRET,
+                appId: appIdStr,
+                restKey: restKey,
+                title: title,
+                message: message,
+                url: "https://yt2178.github.io/Beit-Halevi/",
+                isUpdate: isUpdate
+            };
+            const scriptRes = await window.fetch(APPS_SCRIPT_URL, {
+                method: "POST",
+                body: JSON.stringify(scriptPayload)
+            });
+            if (scriptRes.ok) {
+                const scriptData = await scriptRes.json();
+                if (scriptData.success) {
+                    console.log("Push notification sent successfully via Apps Script!");
+                    return;
+                }
+                console.error("Apps Script push error:", scriptData.error || scriptData);
+            }
+        } catch (err) {
+            console.error("Apps Script push error:", err);
+        }
+        return; // OneSignal חוסם CORS מדפדפן – לא ננסה ישירות
+    }
+
+    // ניסיון ישיר (רק אם אין Apps Script – ייכשל בגלל CORS בדפדפן רגיל)
     try {
         const payload = {
             app_id: appIdStr,
@@ -528,12 +573,10 @@ export async function sendPushNotification(title, message, isUpdate = false) {
         };
 
         if (isUpdate) {
-            // Target users who subscribed to updates (subscribe_updates == "true")
             payload.filters = [
                 { "field": "tag", "key": "subscribe_updates", "relation": "=", "value": "true" }
             ];
         } else {
-            // Target all subscribed users
             payload.included_segments = ["Subscribed Users"];
         }
 

@@ -487,6 +487,8 @@ function createPreviewItem(src, isExisting = false, existingIndex = null) {
 
     return wrapper;
 }
+let _gallerySubmitting = false;
+
 // admin-gallery.js (פונקציית handleGallerySubmit - מתוקנת)
 async function handleGallerySubmit(e) {
     e.preventDefault();
@@ -497,6 +499,10 @@ async function handleGallerySubmit(e) {
     
     const submitBtn = galleryForm.querySelector('button[type="submit"]');
     if (submitBtn) submitBtn.disabled = true;
+
+    // Guard: prevent double-submission
+    if (_gallerySubmitting) { if (submitBtn) submitBtn.disabled = false; return; }
+    _gallerySubmitting = true;
 
     if (!albumTitle) {
         showStatus('נא להזין שם לאלבום', null, true);
@@ -628,7 +634,7 @@ async function handleGallerySubmit(e) {
             }
         }
 
-        const BATCH_SIZE = 3;
+        const BATCH_SIZE = 2;
         for (let i = 0; i < uploadTasks.length; i += BATCH_SIZE) {
             const batch = uploadTasks.slice(i, i + BATCH_SIZE);
             await Promise.all(batch.map(task => task()));
@@ -717,5 +723,6 @@ async function handleGallerySubmit(e) {
         showStatus('שגיאה בתהליך השמירה: ' + err.message, null, true);
     } finally {
         if (submitBtn) submitBtn.disabled = false;
+        _gallerySubmitting = false;
     }
 }
