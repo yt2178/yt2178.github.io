@@ -340,7 +340,35 @@ export async function putWithShaRetry(API_URL, payloadObj, token, initialSha = n
                 keepalive: true
             });
 
-            if (res.ok) return res;
+            if (res.ok) {
+                // Background Sync: If updating one repository in live environment, mirror update to the companion repository
+                if (typeof window !== 'undefined' && API_URL.includes('api.github.com/repos/') && typeof process === 'undefined') {
+                    try {
+                        const companionRepo = REPO_NAME === 'yt2178.github.io' ? 'Beit-Halevi' : 'yt2178.github.io';
+                        const companionUrl = `https://api.github.com/repos/${REPO_OWNER}/${companionRepo}/contents/${API_URL.split('/contents/')[1]}`;
+                        window.fetch(companionUrl, {
+                            headers: { 'Authorization': "token " + token },
+                            cache: 'no-store'
+                        }).then(async compRes => {
+                            if (compRes.ok) {
+                                const compData = await compRes.json();
+                                const compBody = Object.assign({}, currentPayload, { sha: compData.sha });
+                                window.fetch(companionUrl, {
+                                    method: 'PUT',
+                                    headers: {
+                                        'Authorization': "token " + token,
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify(compBody)
+                                }).catch(() => {});
+                            }
+                        }).catch(() => {});
+                    } catch (syncErr) {
+                        // Non-blocking sync attempt
+                    }
+                }
+                return res;
+            }
 
             // If conflict or validation error, refetch latest content and retry
             if (res.status === 409 || res.status === 422 || (res.status === 500 && attempt < maxRetries)) {
