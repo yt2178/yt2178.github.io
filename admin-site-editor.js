@@ -57,7 +57,8 @@ export async function loadSiteConfig() {
             currentSiteConfig = {
                 texts: config.texts || {},
                 theme: config.theme || 'light',
-                primaryColor: config.primaryColor || '#1a4b84'
+                primaryColor: config.primaryColor || '#1a4b84',
+                oneSignalAppId: config.oneSignalAppId || '797cabf1-0a4b-45dc-a0d6-769d0c388882'
             };
             if (config.texts && config.texts.donation_link) {
                 const linkEl = document.getElementById('site-donation-link');
@@ -69,16 +70,36 @@ export async function loadSiteConfig() {
             document.getElementById('site-theme-select').value = currentSiteConfig.theme;
             document.getElementById('site-primary-color').value = currentSiteConfig.primaryColor;
             if (document.getElementById('site-onesignal-id')) {
-                document.getElementById('site-onesignal-id').value = currentSiteConfig.oneSignalAppId || '';
+                document.getElementById('site-onesignal-id').value = currentSiteConfig.oneSignalAppId || '797cabf1-0a4b-45dc-a0d6-769d0c388882';
             }
             if (document.getElementById('site-onesignal-rest')) {
                 document.getElementById('site-onesignal-rest').value = sessionStorage.getItem('onesignal_rest_key') || localStorage.getItem('onesignal_rest_key') || '';
             }
 
+            const testSubBtn = document.getElementById('admin-test-sub-status-btn');
+            const subStatusText = document.getElementById('admin-sub-status-text');
+            if (testSubBtn && subStatusText) {
+                testSubBtn.onclick = () => {
+                    if (!('Notification' in window)) {
+                        subStatusText.textContent = 'מערכת ההתראות אינה נתמכת בדפדפן זה.';
+                        subStatusText.style.color = '#e74c3c';
+                    } else if (Notification.permission === 'granted') {
+                        subStatusText.textContent = 'דפדפן זה מאושר ומנוי לקבלת התראות!';
+                        subStatusText.style.color = '#27ae60';
+                    } else if (Notification.permission === 'denied') {
+                        subStatusText.textContent = 'קבלת התראות חסומה בהגדרות הדפדפן.';
+                        subStatusText.style.color = '#e74c3c';
+                    } else {
+                        subStatusText.textContent = 'טרם אושרו התראות בדפדפן זה (ממתין להרשמה).';
+                        subStatusText.style.color = '#f39c12';
+                    }
+                };
+            }
+
             const onesignalBtn = document.getElementById('save-onesignal-btn');
             if(onesignalBtn) onesignalBtn.onclick = async (e) => {
                 e.preventDefault();
-                const appId = document.getElementById('site-onesignal-id').value.trim();
+                const appId = document.getElementById('site-onesignal-id').value.trim() || '797cabf1-0a4b-45dc-a0d6-769d0c388882';
                 const restKey = document.getElementById('site-onesignal-rest').value.trim();
 
                 if (restKey) {

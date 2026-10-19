@@ -570,7 +570,7 @@ export async function sendPushNotification(title, message, isUpdate = false) {
                 restKey: restKey,
                 title: title,
                 message: message,
-                url: "https://yt2178.github.io/Beit-Halevi/",
+                url: "https://yt2178.github.io/",
                 isUpdate: isUpdate
             };
             const scriptRes = await window.fetch(APPS_SCRIPT_URL, {
@@ -597,7 +597,7 @@ export async function sendPushNotification(title, message, isUpdate = false) {
             app_id: appIdStr,
             headings: { "en": title, "he": title },
             contents: { "en": message, "he": message },
-            url: "https://yt2178.github.io/Beit-Halevi/"
+            url: "https://yt2178.github.io/"
         };
 
         if (isUpdate) {

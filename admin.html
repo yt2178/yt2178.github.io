@@ -311,23 +311,53 @@
             <!-- הגדרות התראות OneSignal -->
             <div class="admin-card">
                 <h3>🔔 מערכת התראות לגולשים (OneSignal)</h3>
-                <form id="onesignal-form" onsubmit="return false;">
-                    <div class="site-settings-grid" style="display: grid; grid-template-columns: 1fr; gap: 15px;">
-                        <div class="input-group">
-                            <label><strong>OneSignal App ID (מזהה חיבור האתר):</strong></label>
-                            <input type="text" id="site-onesignal-id" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ddd; font-family: monospace;" dir="ltr" autocomplete="off">
-                            <small style="color: #7f8c8d;">נדרש להרשמת גולשים לאתר. נשמר באופן פומבי עבור משתמשים. <a href="https://dashboard.onesignal.com/apps" target="_blank" style="color:#3498db; text-decoration:underline;">היכנסו כאן להעתקת המזהה</a>.</small>
+                
+                <div style="background: #e8f8f5; border: 1px solid #2ecc71; border-radius: 8px; padding: 15px; margin-bottom: 15px;">
+                    <div style="display: flex; align-items: flex-start; gap: 12px;">
+                        <div style="background: #27ae60; color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;">
+                            <i class="fas fa-check"></i>
                         </div>
-                        <div class="input-group">
-                            <label><strong>REST API Key (מפתח תקשורת לשליחת התראות):</strong></label>
-                            <input type="password" id="site-onesignal-rest" placeholder="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ddd; font-family: monospace;" dir="ltr" autocomplete="current-password">
-                            <small style="color: #e74c3c;">זהו מפתח <strong>סודי</strong> המפעיל את הרשאות השליחה. יִשָּׁמֵר <strong>מקומית בדפדפן שלך בלבד</strong> למטרות אבטחה מוגברת. מנהלים משניים <strong>אינם חייבים</strong> להקליד אותו כדי לעבוד על האתר - אם המפתח לא הוזן, תתבצע קפיצה (Skip) על בדיקת ומשלוח פוש ללא שגיאות מעצבנות.</small>
-                        </div>
-                        <div class="form-actions" style="margin-top:10px;">
-                            <button id="save-onesignal-btn" class="premium-btn small secondary" style="background: #e67e22; border-color: #e67e22; color: #fff;"><i class="fas fa-plug"></i> בדיקת חיבור ושמירת מפתחות מקומית</button>
+                        <div style="flex: 1;">
+                            <h4 style="margin: 0 0 5px; color: #27ae60; font-size: 1.05rem;">מערכת ההתראות מוטמעת ופעילה באופן מובנה!</h4>
+                            <p style="margin: 0 0 8px; font-size: 0.92rem; color: #34495e; line-height: 1.5;">
+                                מזהה האפליקציה (App ID) מוטמע אוטומטית בקוד האתר: <code style="background: #fff; padding: 2px 6px; border-radius: 4px; border: 1px solid #c8e6c9; font-weight: bold;">797cabf1-0a4b-45dc-a0d6-769d0c388882</code>.<br>
+                                <strong>אין צורך להקליד שום מזהה!</strong> כל גולש באתר יכול להירשם באופן מיידי ולקבל עדכונים.
+                            </p>
+                            <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 12px;">
+                                <a href="https://dashboard.onesignal.com/apps/797cabf1-0a4b-45dc-a0d6-769d0c388882" target="_blank" rel="noopener noreferrer" class="premium-btn small secondary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                                    <i class="fas fa-chart-line"></i> צפייה בנרשמים וסטטיסטיקות ב-OneSignal
+                                </a>
+                                <button type="button" id="admin-test-sub-status-btn" class="premium-btn small secondary" style="display: inline-flex; align-items: center; gap: 6px;">
+                                    <i class="fas fa-bell"></i> בדיקת מצב הרשמה בדפדפן זה
+                                </button>
+                                <span id="admin-sub-status-text" style="font-size: 0.9rem; font-weight: bold; color: #27ae60;"></span>
+                            </div>
                         </div>
                     </div>
-                </form>
+                </div>
+
+                <details style="border: 1px solid #e0e0e0; border-radius: 6px; padding: 10px 14px; background: #fafafa;">
+                    <summary style="cursor: pointer; font-size: 0.9rem; color: #7f8c8d; font-weight: bold;">
+                        הגדרות טכניות מתקדמות (אופציונלי בלבד)
+                    </summary>
+                    <form id="onesignal-form" onsubmit="return false;" style="margin-top: 12px;">
+                        <div class="site-settings-grid" style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+                            <div class="input-group">
+                                <label><strong>OneSignal App ID (מזהה חיבור האתר):</strong></label>
+                                <input type="text" id="site-onesignal-id" value="797cabf1-0a4b-45dc-a0d6-769d0c388882" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ddd; font-family: monospace;" dir="ltr" autocomplete="off" readonly>
+                                <small style="color: #7f8c8d;">מוטמע אוטומטית במערכת.</small>
+                            </div>
+                            <div class="input-group">
+                                <label><strong>REST API Key (מפתח תקשורת לשליחת התראות):</strong></label>
+                                <input type="password" id="site-onesignal-rest" placeholder="מוגדר ישירות בשרת האוטומטי (Apps Script)" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ddd; font-family: monospace;" dir="ltr" autocomplete="current-password">
+                                <small style="color: #7f8c8d;">שליחת התראות מתבצעת אוטומטית דרך Google Apps Script ללא צורך בהזנת מפתח כאן.</small>
+                            </div>
+                            <div class="form-actions" style="margin-top:5px;">
+                                <button id="save-onesignal-btn" class="premium-btn small secondary" style="background: #e67e22; border-color: #e67e22; color: #fff;"><i class="fas fa-plug"></i> שמירת מפתחות</button>
+                            </div>
+                        </div>
+                    </form>
+                </details>
             </div>
 
             <!-- עריכת טקסטים עם תצוגה מקדימה -->

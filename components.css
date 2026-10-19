@@ -26,6 +26,66 @@
     box-shadow: 0 8px 25px rgba(118, 75, 162, 0.4);
 }
 
+.fab-subscribe.subscribed {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4) !important;
+}
+
+.fab-subscribe.subscribed i {
+    animation: none !important;
+}
+
+.fab-subscribe .sub-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: #10b981;
+    color: white;
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* OneSignal Slidedown Dialog & Icon Fix */
+#onesignal-slidedown-dialog {
+    direction: rtl !important;
+    text-align: right !important;
+    font-family: inherit !important;
+}
+
+#onesignal-slidedown-dialog .slidedown-body-icon,
+#onesignal-slidedown-dialog div[class*="icon"],
+#onesignal-slidedown-dialog div[class*="image"] {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    background: #f0f4f8 !important;
+}
+
+#onesignal-slidedown-dialog .slidedown-body-icon img,
+#onesignal-slidedown-dialog div[class*="icon"] img,
+#onesignal-slidedown-dialog img[alt="notification icon"],
+#onesignal-slidedown-dialog img.default-icon {
+    content: url('/assets/icons/icon-192x192.png') !important;
+    width: 48px !important;
+    height: 48px !important;
+    object-fit: contain !important;
+    border-radius: 10px !important;
+    display: block !important;
+}
+
 /* ׳׳™׳™׳§׳•׳ ׳₪׳¢׳׳•׳ ׳¨׳•׳˜׳˜ */
 .fab-subscribe i {
     animation: bellShake 3s infinite;
