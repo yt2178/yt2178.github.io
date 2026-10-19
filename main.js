@@ -322,15 +322,35 @@ if (hebrewYearDisplay) {
                     window.OneSignalDeferred.push(function (OneSignal) {
                         try {
                             console.log('Starting OneSignal.init...');
+                            const isSubfolder = typeof window !== 'undefined' && window.location.pathname.startsWith('/Beit-Halevi');
+                            const swScope = isSubfolder ? '/Beit-Halevi/' : '/';
+                            const swPath = isSubfolder ? '/Beit-Halevi/OneSignalSDKWorker.js' : '/OneSignalSDKWorker.js';
+
                             OneSignal.init({
                                 appId: config.oneSignalAppId,
                                 safari_web_id: "web.onesignal.auto.0d8cfe1b-addf-4fe0-8094-42e4bf6360cd",
                                 notifyButton: {
                                     enable: false, // נשתמש בכפתור שלנו
                                 },
+                                promptOptions: {
+                                    slidedown: {
+                                        prompts: [
+                                            {
+                                                type: "push",
+                                                autoPrompt: false,
+                                                text: {
+                                                    actionMessage: "הירשמו להתראות שלנו לקבלת חדשות ועדכונים אחרונים. ניתן להשבית בכל עת.",
+                                                    acceptButton: "הרשמה",
+                                                    cancelButton: "מאוחר יותר"
+                                                },
+                                                icon: "https://yt2178.github.io/assets/icons/icon-192x192.png"
+                                            }
+                                        ]
+                                    }
+                                },
                                 allowLocalhostAsSecureOrigin: true,
-                                serviceWorkerParam: { scope: '/Beit-Halevi/' },
-                                serviceWorkerPath: '/Beit-Halevi/OneSignalSDKWorker.js',
+                                serviceWorkerParam: { scope: swScope },
+                                serviceWorkerPath: swPath,
                             }).then(() => {
                                 console.log('OneSignal initialized successfully');
                                 window.oneSignalInitialized = true;
@@ -488,7 +508,7 @@ if (hebrewYearDisplay) {
         }
 
         const title = "ישיבת בית הלוי 🔔";
-        const iconUrl = "https://yt2178.github.io/Beit-Halevi/assets/icons/icon-192x192.png";
+        const iconUrl = "https://yt2178.github.io/assets/icons/icon-192x192.png";
 
         const options = {
             body: messageBody,
@@ -497,7 +517,7 @@ if (hebrewYearDisplay) {
             dir: "rtl",
             lang: "he",
             tag: "welcome-notification",
-            data: { url: "https://yt2178.github.io/Beit-Halevi/" }
+            data: { url: "https://yt2178.github.io/" }
         };
 
         if ('Notification' in window && Notification.permission === 'granted') {
