@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://yt2178.github.io/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://yt2178.github.io/assets/social-preview-large.png</image:loc>
+      <image:title>ישיבת בית הלוי ראש העין - היכל בית המדרש</image:title>
+      <image:caption>היכל בית המדרש המרכזי של ישיבת בית הלוי בראש העין</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://yt2178.github.io/#about</loc>
@@ -63,86 +69,154 @@
   <url>
     <loc>https://yt2178.github.io/#gallery/%D7%94%D7%A7%D7%A4%D7%95%D7%AA-%D7%A9%D7%A0%D7%99%D7%95%D7%AA---%D7%AA%D7%A9%D7%A4%D7%95</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://yt2178.github.io/assets/gallery/album-1/thumb.jpg</image:loc>
+      <image:title>הקפות שניות - תשפו</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://yt2178.github.io/#gallery/%D7%A9%D7%99%D7%97%D7%AA-%D7%AA%D7%97%D7%99%D7%9C%D7%AA-%D7%96%D7%9E%D7%9F-%D7%97%D7%95%D7%A8%D7%A3---%D7%AA%D7%A9%D7%A4%D7%95</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://yt2178.github.io/assets/gallery/album-2/thumb.jpg</image:loc>
+      <image:title>שיחת תחילת זמן חורף - תשפו</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://yt2178.github.io/#gallery/%D7%97%D7%A0%D7%95%D7%9B%D7%94-%D7%91%D7%99%D7%A9%D7%99%D7%91%D7%94---%D7%AA%D7%A9%D7%A4%D7%95</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://yt2178.github.io/assets/gallery/album-3/thumb.jpg</image:loc>
+      <image:title>חנוכה בישיבה - תשפו</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://yt2178.github.io/#gallery/%D7%A9%D7%99%D7%97%D7%AA-%D7%97%D7%99%D7%96%D7%95%D7%A7-%D7%95%D7%94%D7%AA%D7%A8%D7%95%D7%9E%D7%9E%D7%95%D7%AA-%D7%91%D7%A2%D7%A0%D7%99%D7%9F-%D7%94%D7%92%D7%99%D7%95%D7%A1-%D7%91%D7%94%D7%A9%D7%AA%D7%AA%D7%A4%D7%95%D7%AA-%D7%9E%D7%A8%D7%9F-%D7%94%D7%A8%D7%90%D7%A9%D7%95%D7%9F-%D7%9C%D7%A6%D7%99%D7%95%D7%9F-%D7%94%D7%A8%D7%91-%D7%99%D7%A6%D7%97%D7%A7-%D7%99%D7%95%D7%A1%D7%A3-%D7%A9%D7%9C%D7%99%D7%98%D7%90</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://yt2178.github.io/assets/gallery/album-4/thumb.jpg</image:loc>
+      <image:title>שיחת חיזוק והתרוממות בענין הגיוס בהשתתפות מרן הראשון לציון הרב יצחק יוסף שליטא</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://yt2178.github.io/#gallery/%D7%A7%D7%A2%D7%9E%D7%A4-%D7%A7%D7%99%D7%A5-%D7%AA%D7%A9%D7%A4%D7%94</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://yt2178.github.io/assets/gallery/album-5/thumb.jpg</image:loc>
+      <image:title>קעמפ קיץ תשפה</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://yt2178.github.io/#gallery/%D7%9E%D7%A2%D7%9E%D7%93-%D7%A1%D7%99%D7%95%D7%9E%D7%99-%D7%9E%D7%A1%D7%9B%D7%AA%D7%95%D7%AA-%D7%92%D7%99%D7%98%D7%99%D7%9F-%D7%95%D7%9E%D7%92%D7%99%D7%9C%D7%94-%D7%A1%D7%95%D7%A3-%D7%96%D7%9E%D7%9F-%D7%97%D7%95%D7%A8%D7%A3-%D7%AA%D7%A9%D7%A4%D7%95</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://yt2178.github.io/assets/gallery/album-6/thumb.jpg</image:loc>
+      <image:title>מעמד סיומי מסכתות גיטין ומגילה סוף זמן חורף תשפו</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://yt2178.github.io/#gallery/%D7%A9%D7%99%D7%97%D7%AA-%D7%97%D7%99%D7%96%D7%95%D7%A7-%D7%9E%D7%94%D7%92%D7%90%D7%95%D7%A0%D7%99%D7%9D-%D7%97%D7%9B%D7%9D-%D7%A0%D7%99%D7%A1%D7%99%D7%9D-%D7%91%D7%9F-%D7%A9%D7%9E%D7%A2%D7%95%D7%9F-%D7%95%D7%A8%D7%91%D7%99-%D7%A9%D7%91%D7%AA%D7%99-%D7%9C%D7%95%D7%99-%D7%A9%D7%9C%D7%99%D7%98%D7%90---%D7%9E%D7%95%D7%A6%D7%A9-%D7%A4%D7%A8%D7%A9%D7%AA-%D7%A9%D7%9E%D7%95%D7%AA</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://yt2178.github.io/assets/gallery/album-7/thumb.jpg</image:loc>
+      <image:title>שיחת חיזוק מהגאונים חכם ניסים בן שמעון ורבי שבתי לוי שליט״א - מוצש פרשת שמות</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://yt2178.github.io/#gallery/%D7%94%D7%94%D7%93%D7%9C%D7%A7%D7%94-%D7%94%D7%9E%D7%A8%D7%9B%D7%96%D7%99%D7%AA-%D7%9C%D7%92-%D7%91%D7%A2%D7%95%D7%9E%D7%A8-%D7%AA%D7%A9%D7%A4%D7%95</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://yt2178.github.io/assets/gallery/album-8/thumb.jpg</image:loc>
+      <image:title>ההדלקה המרכזית לג בעומר תשפו</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://yt2178.github.io/#gallery/%D7%9E%D7%A2%D7%9E%D7%93-%D7%94%D7%AA%D7%A4%D7%99%D7%9C%D7%94-%D7%91%D7%9E%D7%A2%D7%A8%D7%AA-%D7%94%D7%9E%D7%9B%D7%A4%D7%9C%D7%94-%D7%95%D7%91%D7%91%D7%99%D7%AA-%D7%94%D7%A2%D7%9C%D7%9E%D7%99%D7%9F-%D7%91%D7%97%D7%91%D7%A8%D7%95%D7%9F-%D7%AA%D7%A9%D7%A4%D7%95</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://yt2178.github.io/assets/gallery/album-9/thumb.jpg</image:loc>
+      <image:title>מעמד התפילה במערת המכפלה ובבית העלמין בחברון תשפו</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://yt2178.github.io/#gallery/%D7%9E%D7%A2%D7%9E%D7%93-%D7%9B%D7%91%D7%95%D7%93-%D7%94%D7%AA%D7%95%D7%A8%D7%94-%D7%9C%D7%96%D7%9B%D7%A8%D7%95-%D7%A9%D7%9C-%D7%9E%D7%95%D7%A8%D7%99%D7%A0%D7%95-%D7%94%D7%92%D7%A8%D7%90-%D7%90%D7%A4%D7%9C%D7%9C%D7%95-%D7%96%D7%A6%D7%95%D7%A7%D7%9C</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://yt2178.github.io/assets/gallery/album-10/thumb.jpg</image:loc>
+      <image:title>מעמד כבוד התורה לזכרו של מורינו הגרא אפללו זצוקל</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://yt2178.github.io/#gallery/%D7%9E%D7%A2%D7%9E%D7%93-%D7%A1%D7%99%D7%95%D7%9E%D7%99-%D7%9E%D7%A1%D7%9B%D7%AA-%D7%A0%D7%93%D7%A8%D7%99%D7%9D-%D7%A1%D7%95%D7%A3-%D7%96%D7%9E%D7%9F-%D7%A7%D7%99%D7%A5-%D7%AA%D7%A9%D7%A4%D7%95</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://yt2178.github.io/assets/gallery/album-11/thumb.jpg</image:loc>
+      <image:title>מעמד סיומי מסכת נדרים סוף זמן קיץ תשפו</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://yt2178.github.io/#gallery/%D7%A7%D7%A2%D7%9E%D7%A4-%D7%A7%D7%99%D7%A5-%D7%AA%D7%A9%D7%A4%D7%95</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://yt2178.github.io/assets/gallery/album-12/thumb.jpg</image:loc>
+      <image:title>קעמפ קיץ תשפו</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://yt2178.github.io/#gallery/%D7%A9%D7%99%D7%97%D7%94-%D7%94%D7%9B%D7%A0%D7%94-%D7%9C%D7%99%D7%95%D7%9D-%D7%94%D7%9B%D7%99%D7%A4%D7%95%D7%A8%D7%99%D7%9D-%D7%AA%D7%A9%D7%A4%D7%96-%D7%9E%D7%A4%D7%99-%D7%94%D7%92%D7%90%D7%95%D7%9F-%D7%94%D7%92%D7%93%D7%95%D7%9C-%D7%A8%D7%91%D7%99-%D7%90%D7%91%D7%A8%D7%94%D7%9D-%D7%99%D7%A4%D7%94-%D7%A9%D7%9C%D7%A2%D7%96%D7%99%D7%A0%D7%92%D7%A2%D7%A8-%D7%A9%D7%9C%D7%99%D7%98%D7%90-</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://lh3.googleusercontent.com/d/1kgpCbeY5hU0vmN0SRSeX-2lLI-dgjRdO=w1000</image:loc>
+      <image:title>שיחה הכנה ליום הכיפורים תשפז מפי הגאון הגדול רבי אברהם יפה שלעזינגער שליטא </image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://yt2178.github.io/#gallery/%D7%94%D7%99%D7%9C%D7%95%D7%9C%D7%AA-%D7%94%D7%97%D7%A4%D7%A5-%D7%97%D7%99%D7%99%D7%9D-%D7%A1%D7%93%D7%A8-%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%91%D7%9E%D7%95%D7%A6%D7%A9-%D7%A4%D7%A8%D7%A9%D7%AA-%D7%A0%D7%99%D7%A6%D7%91%D7%99%D7%9D-%D7%95%D7%99%D7%9C%D7%9A-%D7%9B%D7%93-%D7%90%D7%9C%D7%95%D7%9C-%D7%AA%D7%A9%D7%A4%D7%95</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://lh3.googleusercontent.com/d/1ci6weu_NV8R7MdJ1bTS8gj7W20UfZi6t=w1000</image:loc>
+      <image:title>הילולת החפץ חיים סדר לימוד במוצש פרשת ניצבים וילך כד אלול תשפו</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://yt2178.github.io/#gallery/-%D7%A1%D7%93%D7%A8-%D7%9E%D7%97%D7%99%D7%9C-%D7%90%D7%9C-%D7%97%D7%99%D7%9C-%D7%9E%D7%95%D7%A6%D7%90%D7%99-%D7%9B%D7%99%D7%A4%D7%95%D7%A8-%D7%AA%D7%A9%D7%A4%D7%96</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://lh3.googleusercontent.com/d/1FGjXrxwUArWt0UhOh-FNrEppOI9ZGTba=w1000</image:loc>
+      <image:title> סדר מחיל אל חיל מוצאי כיפור תשפז</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://yt2178.github.io/#gallery/%D7%94%D7%99%D7%9C%D7%95%D7%9C%D7%AA-%D7%94%D7%91%D7%9F-%D7%90%D7%99%D7%A9-%D7%97%D7%99--%D7%A1%D7%93%D7%A8-%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%99%D7%92-%D7%90%D7%9C%D7%95%D7%9C-%D7%AA%D7%A9%D7%A4%D7%95</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://lh3.googleusercontent.com/d/1m0B8x97DSx-8rPX-w16xg2Xc28h6eRqF=w1000</image:loc>
+      <image:title>הילולת הבן איש חי  סדר לימוד יג אלול תשפו</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://yt2178.github.io/#gallery/%D7%94%D7%A7%D7%A4%D7%95%D7%AA-%D7%A9%D7%A0%D7%99%D7%95%D7%AA-%D7%AA%D7%A9%D7%A4%D7%96</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://lh3.googleusercontent.com/d/1DMjevTnPvSSLnU5yG1JtQDMt6-D5_ZwE=w1000</image:loc>
+      <image:title>הקפות שניות תשפז</image:title>
+    </image:image>
   </url>
 </urlset>
