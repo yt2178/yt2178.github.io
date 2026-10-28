@@ -150,52 +150,49 @@ export async function loadSearchConsoleStats(forceRefresh = false) {
         start.setDate(end.getDate() - 28);
 
         const formatDate = d => d.toISOString().split('T')[0];
-        const siteUrl = encodeURIComponent("sc-domain:yt2178.github.io");
+        // ננסה את הנכסים האפשריים: sc-domain, נתיב שורש ונתיב תת-תיקייה
+        const candidateSites = [
+            "sc-domain:yt2178.github.io",
+            "https://yt2178.github.io/",
+            "https://yt2178.github.io/Beit-Halevi/"
+        ];
 
-        // 1. קריאה לסיכום כולל
-        const queryUrl = `https://searchconsole.googleapis.com/webmasters/v3/sites/${siteUrl}/searchAnalytics/query`;
-        
-        let response = await window.fetch(queryUrl, {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                startDate: formatDate(start),
-                endDate: formatDate(end),
-                dimensions: ['page'],
-                rowLimit: 5
-            })
-        });
+        let response = null;
+        let successData = null;
 
-        // אם sc-domain נכשל (למשל הנכס מוגדר לפי URL מלא) - ננסה בפורמט URL
-        if (!response.ok && response.status === 403) {
-            const urlSite = encodeURIComponent("https://yt2178.github.io/");
-            const retryUrl = `https://searchconsole.googleapis.com/webmasters/v3/sites/${urlSite}/searchAnalytics/query`;
-            response = await window.fetch(retryUrl, {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    startDate: formatDate(start),
-                    endDate: formatDate(end),
-                    dimensions: ['page'],
-                    rowLimit: 5
-                })
-            });
-        }
+        for (const candidate of candidateSites) {
+            try {
+                const encodedSite = encodeURIComponent(candidate);
+                const queryUrl = `https://searchconsole.googleapis.com/webmasters/v3/sites/${encodedSite}/searchAnalytics/query`;
+                const res = await window.fetch(queryUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        startDate: formatDate(start),
+                        endDate: formatDate(end),
+                        dimensions: ['page'],
+                        rowLimit: 5
+                    })
+                });
 
-        if (!response.ok) {
-            if (response.status === 403) {
-                throw new Error('אין הרשאה לאתר זה בחשבון גוגל הנוכחי (או שהנכס לא מאומת ב-Search Console)');
+                if (res.ok) {
+                    successData = await res.json();
+                    response = res;
+                    break;
+                }
+            } catch (e) {
+                // נסה את המועמד הבא
             }
-            throw new Error(`שגיאת Search Console: ${response.status}`);
         }
 
-        const data = await response.json();
+        if (!response || !response.ok) {
+            throw new Error('אין הרשאה לאתר זה בחשבון גוגל הנוכחי (ודא שהתחברת עם החשבון שבו מאומת ה-Search Console)');
+        }
+
+        const data = successData;
         gscDataCache = data;
         renderGscData(data);
         if (statusNoteEl) statusNoteEl.textContent = '28 ימים אחרונים ✓';

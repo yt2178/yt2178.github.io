@@ -15,7 +15,7 @@ export const HISTORY_JSON_PATH = 'data/history.json';
 export const SITE_CONFIG_PATH = 'data/site-config.json';
 export const GALLERY_JSON_PATH = 'data/gallery.json';
 export const TASKS_JSON_PATH = 'data/admin-tasks.json';
-export const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx9Q26XavI0TYhxAG_he6B9IHobwkvS4k-pAX9rEV3dLuLYwNrhjOwlfspV4xYZ3hJyGQ/exec";
+export const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwb3KCUkzLCyofjUwUFxUh_Fx7zgbxG1EEKUFXLnB9uziKlXHJMbKKZV7GHO_jb8CqkUA/exec";
 export const APPS_SCRIPT_SECRET = "beit_halevi_secret_2026";
 export const MESSAGES_SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRpxzvw-KY5zHaayaA6eaDMJ4OG8DxvrPHfBpC7_yI0TBlnMyGZm378VJiv3vJOmdSqtjon7SaPWVno/pub?output=csv";
 
