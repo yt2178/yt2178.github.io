@@ -76,7 +76,7 @@ function renderOneSignalData(data) {
     const notifications = data.notifications || [];
 
     const total = app.players ?? app.player_count ?? '-';
-    const messagable = app.messagable_players ?? '-';
+    const messagable = app.messagable_players ?? app.players ?? app.player_count ?? '-';
 
     if (subscribersCountEl) subscribersCountEl.textContent = typeof total === 'number' ? total.toLocaleString() : total;
     if (messagableCountEl) messagableCountEl.textContent = typeof messagable === 'number' ? messagable.toLocaleString() : messagable;
@@ -171,11 +171,9 @@ export async function loadSearchConsoleStats(forceRefresh = false) {
 
         if (!response.ok) {
             const errBody = await response.json().catch(() => ({}));
-            console.error("GSC API Error response:", response.status, errBody);
-            if (response.status === 403) {
-                throw new Error('שגיאת הרשאה (403): יש לבצע התנתקות והתחברות מחדש עם גוגל באתר הניהול כדי לאשר את הרשאת ה-Search Console');
-            }
-            throw new Error(`שגיאת Search Console (${response.status}): ${errBody.error?.message || 'נכשל'}`);
+            console.error("GSC API Error details:", response.status, JSON.stringify(errBody));
+            const detailedMsg = errBody.error?.message || (response.status === 403 ? 'אין הרשאת גישה לנכס בחשבון גוגל הנוכחי' : 'שגיאה ב-GSC');
+            throw new Error(`${detailedMsg} (${response.status})`);
         }
 
         const data = await response.json();
