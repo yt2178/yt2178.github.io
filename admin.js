@@ -16,6 +16,7 @@ import { putWithShaRetry } from './admin-core.js';
 import { loadAndRenderGallery, initGalleryAdminEvents } from './admin-gallery.js';
 import { loadAndRenderTasks } from './admin-tasks.js';
 import { loadSiteConfig, saveAllSiteSettings, pingIndexNow } from './admin-site-editor.js';
+import { loadOneSignalStats, loadSearchConsoleStats, loadBingStats, refreshAllAnalytics } from './admin-analytics.js';
 
 const GITHUB_TOKEN_KEY = 'admin_github_token';
 const GITHUB_USERNAME_KEY = 'admin_github_username';
@@ -1056,6 +1057,13 @@ async function initAdmin() {
     document.getElementById('nav-history-btn')?.addEventListener('click', () => navigateTo('history-section'));
     document.getElementById('nav-messages-btn')?.addEventListener('click', () => navigateTo('messages-section'));
     document.getElementById('nav-tasks-btn')?.addEventListener('click', () => navigateTo('tasks-section'));
+    document.getElementById('nav-analytics-btn')?.addEventListener('click', () => {
+        navigateTo('analytics-section');
+        loadOneSignalStats();
+        loadSearchConsoleStats();
+        loadBingStats();
+    });
+    document.getElementById('refresh-analytics-btn')?.addEventListener('click', refreshAllAnalytics);
     document.getElementById('nav-site-btn')?.addEventListener('click', async () => {
         navigateTo('site-section');
         await loadSiteConfig();

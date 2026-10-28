@@ -21,7 +21,7 @@ export const MESSAGES_SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PAC
 
 // Google API Config
 export const GOOGLE_CLIENT_ID = "1038052523883-b3r3k21kc6pvu3t3vken0f963q6cl0q1.apps.googleusercontent.com";
-export const GOOGLE_SCOPES = atob("aHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20vYXV0aC9kcml2ZS5maWxl") + " email profile openid";
+export const GOOGLE_SCOPES = atob("aHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20vYXV0aC9kcml2ZS5maWxl") + " https://www.googleapis.com/auth/webmasters.readonly email profile openid";
 export const GOOGLE_FOLDER_ID = "1viRoR0PVmGrYNtuTSxRBTn5v4lSPvxow";
 
 // Storage Keys
@@ -114,7 +114,7 @@ export function initGoogleLogin() {
         return;
     }
 
-    const scopeStr = atob("aHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20vYXV0aC9kcml2ZS5maWxl") + " email profile openid";
+    const scopeStr = GOOGLE_SCOPES;
 
     try {
         window.tokenClient = google.accounts.oauth2.initTokenClient({
@@ -166,7 +166,7 @@ export async function googleLogin() {
             }
         };
 
-        const scopeStr = atob("aHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20vYXV0aC9kcml2ZS5maWxl") + " email profile openid";
+        const scopeStr = GOOGLE_SCOPES;
         console.log("Requesting access token with explicit scope:", scopeStr);
 
         // REQUEST TOKEN

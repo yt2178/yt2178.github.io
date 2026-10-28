@@ -138,6 +138,14 @@
                         <p>ניהול משימות לביצוע וסנכרון בין המנהלים</p>
                     </div>
                 </div>
+                <!-- [חדש] קטגוריית אנליטיקס וסטטיסטיקות -->
+                <div id="nav-analytics-btn" class="dashboard-card">
+                    <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="card-content">
+                        <h3>אנליטיקס וחיפוש</h3>
+                        <p>חשיפות בגוגל, בינג, ונתוני מנויי OneSignal</p>
+                    </div>
+                </div>
                 <div id="nav-site-btn" class="dashboard-card">
                     <div class="card-icon"><i class="fas fa-cogs"></i></div>
                     <div class="card-content">
@@ -428,6 +436,123 @@
                 </div>
             </div>
         </section>
+
+        <!-- [חדש] סקשן אנליטיקס וסטטיסטיקות -->
+        <section id="analytics-section" style="display:none;">
+            <div class="section-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                <button class="back-to-dashboard-btn premium-btn small"><i class="fas fa-arrow-right"></i> חזרה ללוח הבקרה</button>
+                <h2 style="margin: 0;"><i class="fas fa-chart-line"></i> אנליטיקס ומנועי חיפוש</h2>
+                <button id="refresh-analytics-btn" class="premium-btn small" style="background-color: #2980b9;">
+                    <i class="fas fa-sync-alt"></i> רענן נתונים
+                </button>
+            </div>
+
+            <!-- גריד 3 ווידג'טים -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-top: 20px;">
+                
+                <!-- ווידג'ט 1: OneSignal -->
+                <div class="admin-card" style="margin-bottom:0; display:flex; flex-direction:column; border-top: 4px solid #e74c3c;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                        <h3 style="margin:0; color:#c0392b; font-size:1.15rem; display:flex; align-items:center; gap:8px;">
+                            <i class="fas fa-bell"></i> מנויי התראות OneSignal
+                        </h3>
+                        <span id="os-status-note" style="font-size:0.75rem; color:#7f8c8d; font-weight:bold;">-</span>
+                    </div>
+
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-bottom:15px;">
+                        <div style="background:#fdf2f2; padding:12px; border-radius:8px; text-align:center;">
+                            <div style="font-size:0.8rem; color:#7f8c8d;">סה"כ רשומים</div>
+                            <div id="os-subscribers-count" style="font-size:1.6rem; font-weight:bold; color:#c0392b;">-</div>
+                        </div>
+                        <div style="background:#f0faf4; padding:12px; border-radius:8px; text-align:center;">
+                            <div style="font-size:0.8rem; color:#7f8c8d;">פעילים לקבלת הודעה</div>
+                            <div id="os-messagable-count" style="font-size:1.6rem; font-weight:bold; color:#27ae60;">-</div>
+                        </div>
+                    </div>
+
+                    <h4 style="font-size:0.9rem; color:#555; margin-bottom:8px; margin-top:5px;">התראות אחרונות שנשלחו:</h4>
+                    <ul id="os-notifications-list" style="list-style:none; padding:0; margin:0; flex:1; min-height:100px;">
+                        <li class="analytics-loading-item">טוען...</li>
+                    </ul>
+
+                    <div style="margin-top:15px; text-align:center; padding-top:10px; border-top:1px solid #eee;">
+                        <a href="https://dashboard.onesignal.com/" target="_blank" rel="noopener noreferrer" style="font-size:0.82rem; color:#c0392b; text-decoration:none; font-weight:bold;">
+                            <i class="fas fa-external-link-alt"></i> פתח לוח בקרה מלא ב-OneSignal
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ווידג'ט 2: Google Search Console -->
+                <div class="admin-card" style="margin-bottom:0; display:flex; flex-direction:column; border-top: 4px solid #4285f4;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                        <h3 style="margin:0; color:#1a73e8; font-size:1.15rem; display:flex; align-items:center; gap:8px;">
+                            <i class="fab fa-google"></i> Google Search Console
+                        </h3>
+                        <span id="gsc-status-note" style="font-size:0.75rem; color:#7f8c8d; font-weight:bold;">-</span>
+                    </div>
+
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-bottom:12px;">
+                        <div style="background:#f1f7fe; padding:12px; border-radius:8px; text-align:center;">
+                            <div style="font-size:0.8rem; color:#7f8c8d;">קליקים (28 ימים)</div>
+                            <div id="gsc-clicks-count" style="font-size:1.6rem; font-weight:bold; color:#1a73e8;">-</div>
+                        </div>
+                        <div style="background:#f1f7fe; padding:12px; border-radius:8px; text-align:center;">
+                            <div style="font-size:0.8rem; color:#7f8c8d;">חשיפות בתוצאות</div>
+                            <div id="gsc-impressions-count" style="font-size:1.6rem; font-weight:bold; color:#2980b9;">-</div>
+                        </div>
+                    </div>
+
+                    <div style="display:flex; justify-content:space-between; background:#fafafa; padding:8px 12px; border-radius:6px; font-size:0.85rem; margin-bottom:12px;">
+                        <span>שיעור הקלקה (CTR): <strong id="gsc-ctr-val" style="color:#27ae60;">-</strong></span>
+                        <span>מיקום ממוצע: <strong id="gsc-pos-val" style="color:#8e44ad;">-</strong></span>
+                    </div>
+
+                    <h4 style="font-size:0.9rem; color:#555; margin-bottom:8px;">דפים מובילים בחיפוש:</h4>
+                    <ul id="gsc-pages-list" style="list-style:none; padding:0; margin:0; flex:1; min-height:100px;">
+                        <li class="analytics-loading-item">טוען...</li>
+                    </ul>
+
+                    <div style="margin-top:15px; text-align:center; padding-top:10px; border-top:1px solid #eee;">
+                        <a href="https://search.google.com/search-console?resource_id=sc-domain%3Ayt2178.github.io" target="_blank" rel="noopener noreferrer" style="font-size:0.82rem; color:#1a73e8; text-decoration:none; font-weight:bold;">
+                            <i class="fas fa-external-link-alt"></i> פתח דוח ביצועים ב-Google Search Console
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ווידג'ט 3: Bing Webmaster Tools -->
+                <div class="admin-card" style="margin-bottom:0; display:flex; flex-direction:column; border-top: 4px solid #008272;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                        <h3 style="margin:0; color:#008272; font-size:1.15rem; display:flex; align-items:center; gap:8px;">
+                            <i class="fab fa-microsoft"></i> Bing & Copilot Search
+                        </h3>
+                        <span id="bing-status-note" style="font-size:0.75rem; color:#7f8c8d; font-weight:bold;">-</span>
+                    </div>
+
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-bottom:15px;">
+                        <div style="background:#edf7f6; padding:12px; border-radius:8px; text-align:center;">
+                            <div style="font-size:0.8rem; color:#7f8c8d;">קליקים מ-Bing</div>
+                            <div id="bing-clicks-count" style="font-size:1.6rem; font-weight:bold; color:#008272;">-</div>
+                        </div>
+                        <div style="background:#edf7f6; padding:12px; border-radius:8px; text-align:center;">
+                            <div style="font-size:0.8rem; color:#7f8c8d;">חשיפות ב-Bing</div>
+                            <div id="bing-impressions-count" style="font-size:1.6rem; font-weight:bold; color:#008272;">-</div>
+                        </div>
+                    </div>
+
+                    <h4 style="font-size:0.9rem; color:#555; margin-bottom:8px;">שאילתות חיפוש מובילות:</h4>
+                    <ul id="bing-queries-list" style="list-style:none; padding:0; margin:0; flex:1; min-height:100px;">
+                        <li class="analytics-loading-item">טוען...</li>
+                    </ul>
+
+                    <div style="margin-top:15px; text-align:center; padding-top:10px; border-top:1px solid #eee;">
+                        <a href="https://www.bing.com/webmasters/" target="_blank" rel="noopener noreferrer" style="font-size:0.82rem; color:#008272; text-decoration:none; font-weight:bold;">
+                            <i class="fas fa-external-link-alt"></i> פתח דשבורד ב-Bing Webmasters
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
         <div style="text-align: center; padding: 20px; font-size: 0.75rem; color: #7f8c8d; margin-top: 20px; opacity: 0.7;">
             Beit Halevi v1.0.3
         </div>
@@ -436,6 +561,7 @@
 
     <script type="module" src="admin-gallery.js?v=8"></script>
     <script type="module" src="admin-tasks.js?v=8"></script>
+    <script type="module" src="admin-analytics.js?v=8"></script>
     <script type="module" src="admin.js?v=8"></script>
 
     <!-- [חדש] תפריט תחתון קבוע למובייל -->
