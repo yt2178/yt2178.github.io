@@ -150,49 +150,35 @@ export async function loadSearchConsoleStats(forceRefresh = false) {
         start.setDate(end.getDate() - 28);
 
         const formatDate = d => d.toISOString().split('T')[0];
-        // ננסה את הנכסים האפשריים: sc-domain, נתיב שורש ונתיב תת-תיקייה
-        const candidateSites = [
-            "sc-domain:yt2178.github.io",
-            "https://yt2178.github.io/",
-            "https://yt2178.github.io/Beit-Halevi/"
-        ];
+        // הנכס המאומת המדויק מ-Google Search Console
+        const exactSite = "https://yt2178.github.io/";
+        const queryUrl = `https://searchconsole.googleapis.com/webmasters/v3/sites/${encodeURIComponent(exactSite)}/searchAnalytics/query`;
+        
+        console.log("Querying GSC API for site:", exactSite);
+        const response = await window.fetch(queryUrl, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                startDate: formatDate(start),
+                endDate: formatDate(end),
+                dimensions: ['page'],
+                rowLimit: 5
+            })
+        });
 
-        let response = null;
-        let successData = null;
-
-        for (const candidate of candidateSites) {
-            try {
-                const encodedSite = encodeURIComponent(candidate);
-                const queryUrl = `https://searchconsole.googleapis.com/webmasters/v3/sites/${encodedSite}/searchAnalytics/query`;
-                const res = await window.fetch(queryUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        startDate: formatDate(start),
-                        endDate: formatDate(end),
-                        dimensions: ['page'],
-                        rowLimit: 5
-                    })
-                });
-
-                if (res.ok) {
-                    successData = await res.json();
-                    response = res;
-                    break;
-                }
-            } catch (e) {
-                // נסה את המועמד הבא
+        if (!response.ok) {
+            const errBody = await response.json().catch(() => ({}));
+            console.error("GSC API Error response:", response.status, errBody);
+            if (response.status === 403) {
+                throw new Error('שגיאת הרשאה (403): יש לבצע התנתקות והתחברות מחדש עם גוגל באתר הניהול כדי לאשר את הרשאת ה-Search Console');
             }
+            throw new Error(`שגיאת Search Console (${response.status}): ${errBody.error?.message || 'נכשל'}`);
         }
 
-        if (!response || !response.ok) {
-            throw new Error('אין הרשאה לאתר זה בחשבון גוגל הנוכחי (ודא שהתחברת עם החשבון שבו מאומת ה-Search Console)');
-        }
-
-        const data = successData;
+        const data = await response.json();
         gscDataCache = data;
         renderGscData(data);
         if (statusNoteEl) statusNoteEl.textContent = '28 ימים אחרונים ✓';

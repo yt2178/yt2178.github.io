@@ -172,7 +172,7 @@ export async function googleLogin() {
         // REQUEST TOKEN
         try {
             window.tokenClient.requestAccessToken({
-                prompt: '',
+                prompt: 'consent', // מוודא שחלון ההרשאות מציג אישור הרשאה מפורש ל-Search Console
                 scope: scopeStr
             });
             console.log("requestAccessToken called.");
